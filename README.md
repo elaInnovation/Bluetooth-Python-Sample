@@ -38,3 +38,5 @@ Describe different parameters:
       3rd parameter are filters   : enter a string; that will determinate each word use to filter our 'file.csv' data writed.
                                     You must write your differente filters like this: "filter1;filter2;filter3;..."
                                     This is a contain filter. You will get only data contain your filter word
+                                    
+     You must to enter the both first paramters. The 3rd parameter (filters) are not required if you don't want to filter data.
