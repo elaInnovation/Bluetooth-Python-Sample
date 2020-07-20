@@ -24,8 +24,8 @@ Then install python 3.7; you may need to use pip3:
 ```
 
 ## Execution
-To use the scanner programe, you can use the script **my_script.py**
+To use the scanner programe, you can use the script **bluetooth_scanner_sample.py**
 
-Run the command  : sudo python3.7 my_script.py timescan file.csv "filters"
+Run the command  : sudo python3.7 bluetooth_scanner_sample.py <timescan> <file>.csv "<filters>"
 
 Describe different parameters:
