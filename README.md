@@ -28,6 +28,6 @@ To use the scanner programe, you can use the script **bluetooth_scanner_sample.p
 
 Run the command  : 
 ```bash
-   sudo python3.7 bluetooth_scanner_sample.py <timescan> <file>.csv "<filters>"
+   sudo python3.7 bluetooth_scanner_sample.py <timescan> <file>.csv <"filters">
   ```
 Describe different parameters:
