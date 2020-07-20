@@ -30,8 +30,11 @@ Run the command  :
    sudo python3.7 bluetooth_scanner_sample.py <timescan> <file>.csv <"filters">
   ```
 Describe different parameters:
+
    1st parameter is timescan(s): enter a float number to determine the time requiered to scan
+   
    2nd parameter is file.csv   : enter a string; that will be your created file's name. Don't forget the '.csv' extension
+   
    3rd parameter are filters   : enter a string; that will determinate each word use to filter our 'file.csv' data writed.
                                  You must write your differente filters like this: "filter1;filter2;filter3;..."
                                  This is a contain filter. You will get only data contain your filter word
