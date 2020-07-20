@@ -8,7 +8,6 @@ Here you will find the procedure to manage the sample files and run it directly 
 ### Raspberry-Pi 3B+
 To execute the different python sample provide by ELA Bluetooth for the bluetooth, you need to install the different environnement or package :
 - Python 3.7
-- bluetooth.btle
 - bluepy
 
 First of all be sure that your raspberry is up to date by executing the following commands:
