@@ -9,24 +9,21 @@ Here you will find the procedure to manage the sample files and run it directly 
 To execute the different python sample provide by ELA Bluetooth for the bluetooth, you need to install the different environnement or package :
 - Python 3.7
 - bluetooth.btle
-- ...
+- bluepy
 
 First of all be sure that your raspberry is up to date by executing the following commands:
 ```bash
    sudo apt-get update
 ```
 
-Then install python 3.7:
-```bash
-   sudo apt-get install ??? or other
-```
+Then install python 3.7; you may need to use pip3:
 
-Then install the target bluetooth package **bluetooth.btle**:
 ```bash
-   sudo pip3 install ????
+   sudo apt-get install python3-pip libglib2.0-dev
+   sudo pip3 install bluepy
 ```
 
 ## Execution
-To use the scanner programe, you can use the sript **my_scrpit.py**
-Run the command  : TODO 
-Describe different parameters ...
+To use the scanner programe, you can use the script **my_script.py**
+Run the command  : sudo python3.7 my_script.py timescan file.csv "filters"
+Describe different parameters:
