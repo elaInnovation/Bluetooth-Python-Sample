@@ -39,4 +39,4 @@ Describe different parameters:
                                     You must write your differente filters like this: "filter1;filter2;filter3;..."
                                     This is a contain filter. You will get only data contain your filter word
                                     
-     You must to enter the both first parameters. The 3rd parameter (filters) are not required if you don't want to filter data.
+     You must to enter the both first parameters. For the 3rd parameter (filters) you have to enter "" if you don't want filter.
