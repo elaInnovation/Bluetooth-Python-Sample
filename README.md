@@ -22,8 +22,25 @@ Then install python 3.7; you may need to use pip3:
    sudo pip3 install bluepy
 ```
 
-## Execution
-To use the scanner program, you can use the script **bluetooth_scanner_sample.py**
+## Sample
+This repository contains different sample. Accordings to your needs, you can try each files with python to perform the following functions:
+- [elaScanSample.py](#elaScanSample.py) : use bluetooth through bluepy to scan with bluetooth the advertising data
+- [elaConnectSample.py](#elaConnectSample.py) : use bluetooth through bluepy to connect to an ELA Innovation tag and send a command
+- [bluetooth_scanner_sample.py](#bluetooth_scanner_sample.py) : use bluetooth through bluepy to scan and record data into a csv file
+
+### elaScanSample.py
+This sample use the scanner during a fix period (10 seconds) and display results from Bluetooth Advertising.
+
+Run the command  : 
+```bash
+   sudo python3.7 elaScanSample.py
+  ```
+
+### elaConnectSample.py
+This sample use bluetooth and bluepy to connect to an ELA Innovation tag and send command
+
+### bluetooth_scanner_sample.py
+To use the scanner and record data into a csv file, you can use the script **bluetooth_scanner_sample.py**. This program allows you to record for a defined period and filter to flush the result into a csv file.
 
 Run the command  : 
 ```bash
@@ -37,6 +54,7 @@ Describe different parameters:
    
       3rd parameter are filters   : enter a string; that will determinate each word use to filter our 'file.csv' data writed.
                                     You must write your differente filters like this: "filter1;filter2;filter3;..."
-                                    This is a contain filter. You will get only data contain your filter word
+                                    This is a contain filter. You will get only data contain your filter word.
+                                    **The filter algorithm match only if the filter is contained in Bluetooth Local Name**
                                     
      You must to enter the both first parameters. For the 3rd parameter (filters) you have to enter "" if you don't want filter.
