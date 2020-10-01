@@ -105,6 +105,8 @@ class BluepyConnect(DefaultDelegate):
 
         except BTLEException as e:
             print(e)
+        finally:
+            self._peripheral.disconnect()
 
     def send(self, message):
         """Call this function to send a BLE message over the UART service
