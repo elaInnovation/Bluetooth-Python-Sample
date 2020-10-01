@@ -22,7 +22,7 @@ Then install python 3.7; you may need to use pip3:
    sudo pip3 install bluepy
 ```
 
-## Sample
+## Samples
 This repository contains different sample. Accordings to your needs, you can try each files with python to perform the following functions:
 - [elaScanSample.py](#elaScanSample.py) : use bluetooth through bluepy to scan with bluetooth the advertising data
 - [elaConnectSample.py](#elaConnectSample.py) : use bluetooth through bluepy to connect to an ELA Innovation tag and send a command
@@ -33,20 +33,31 @@ This sample use the scanner during a fix period (10 seconds) and display results
 
 Run the command  : 
 ```bash
-   sudo python3.7 elaScanSample.py
+   sudo python3 elaScanSample.py
   ```
 
 ### elaConnectSample.py
-This sample use bluetooth and bluepy to connect to an ELA Innovation tag and send command
+This sample use bluetooth and bluepy to connect to an ELA Innovation tag and send command.
+
+Run the command  : 
+```bash
+   sudo python3 elaConnectSample.py <mac_address> <ela_tag_command>
+  ```
+Input parameters description:
+
+      1st parameter is mac address: enter a string to specify the tag's mag address. This information is available by scanning and in the Bluetooth Advertisement
+   
+      2nd parameter is command  : enter a string to specify the command / functionnlaity available for an ELA Innovation Bluetooth Tag
+
 
 ### bluetooth_scanner_sample.py
 To use the scanner and record data into a csv file, you can use the script **bluetooth_scanner_sample.py**. This program allows you to record for a defined period and filter to flush the result into a csv file.
 
 Run the command  : 
 ```bash
-   sudo python3.7 bluetooth_scanner_sample.py <timescan> <file>.csv <"filters">
+   sudo python3 bluetooth_scanner_sample.py <timescan> <file>.csv <"filters">
   ```
-Describe different parameters:
+Input parameters description:
 
       1st parameter is timescan(s): enter a float number to determine the time requiered to scan
    

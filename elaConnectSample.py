@@ -1,12 +1,15 @@
 from queue import Queue
 from threading import Thread
 
+import sys
 import bluepy
 from bluepy.btle import Peripheral, DefaultDelegate, BTLEException
 
-# NOTE - This class is directly inheriting bluepy.btle.DefaultDelegate for notifications,
+## 
+# @class BluepyConnect 
+# @brief This class is directly inheriting bluepy.btle.DefaultDelegate for notifications,
 #        but the delegate could be a separate class
-class BluepyExample(DefaultDelegate):
+class BluepyConnect(DefaultDelegate):
 
     def __init__(self, address, type=bluepy.btle.ADDR_TYPE_PUBLIC):
         super().__init__()
@@ -112,27 +115,66 @@ class BluepyExample(DefaultDelegate):
         # put the message in the TX queue
         self._tx_queue.put_nowait(message)
 
+## 
+# @fn test_argv
+# @brief organize argv
+# @return tuple with the different results
+#   
+def test_argv():
+    #
+    mac_address = ""
+    command = ""
+    success = False
+    #
+    try:    
+        num_arguments = len(sys.argv)
+        if (num_arguments == 3):
+            mac_address = str(sys.argv[1])
+            command = str(sys.argv[2])
+            print("[info]\t[Configuration]\t==> No filter defined for this record")
+            success = True
+        else:
+            print("[help]\tTo run this script, ou have to respect the following syntax :")
+            print("[help]\tsudo python3.7 elaConectSample.py <mac_address> <ela_ble_command>")
+            print("[help]\t\t<mac_address> (Mandatory) : tag to connect mac address ")
+            print("[help]\t\t<ela_ble_command> (Mandatory) : specific command for ELA Innovation Bluetooth Tag ")
+            success = False
+    except :
+        print("[Exception] An unexpected exception occurs for the input arguments :", sys.exc_info()[0])
+        success = False
+    #
+    # return tuple of results
+    return success, mac_address, command
 
+## 
+# @fn main
+# @brief main program to start a connection to an ELA Tag  
 if __name__ == "__main__":
 
-    mac = "C2:9C:68:04:76:8E"
-    # mac = "C2:9C:68:04:76:8E"
+    # NOTE - mac adress format
+    #        mac_address = "C2:9C:68:04:76:8E"
+    #
+    # test if the arguments fullfil the program conditions
+    try:
+        b_arg_ok, mac_address, command  = test_argv()
+        if(b_arg_ok):
+            # NOTE - MUST set this appropriately, depending on the type of address that the peripheral is advertising
+            # addr_type = bluepy.btle.ADDR_TYPE_PUBLIC
+            addr_type = bluepy.btle.ADDR_TYPE_RANDOM
 
-    # NOTE - MUST set this appropriately, depending on the type of address that the peripheral is advertising
-    # addr_type = bluepy.btle.ADDR_TYPE_PUBLIC
-    addr_type = bluepy.btle.ADDR_TYPE_RANDOM
+            if mac_address is None:
+                print("Need to set the MAC address...")
+                exit(1)
 
-    if mac is None:
-        print("Need to set the MAC address...")
-        exit(1)
+            example = BluepyConnect(mac_address, addr_type)
+            msg = command
+            example.send(msg)
 
-    example = BluepyExample(mac, addr_type)
-    msg = "LED_OFF"
-    example.send(msg)
-
-    print("Please enter \"Q\" to qui the program ...")    
-    
-    while True:
-        msg = input()
-        if msg.upper() == "Q":
-            break
+            print("Please enter \"Q\" to qui the program ...")    
+            
+            while True:
+                msg = input()
+                if msg.upper() == "Q":
+                    break
+    except:
+        print("[elaConnectSample.py][__main__][ERROR] An exception occurs whilte the program is trying to connect to the tag !!!")
