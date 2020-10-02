@@ -24,16 +24,25 @@ Then install python 3.7; you may need to use pip3:
 
 ## Samples
 This repository contains different sample. Accordings to your needs, you can try each files with python to perform the following functions:
-- [elaScanSample.py](#elaScanSample.py) : use bluetooth through bluepy to scan with bluetooth the advertising data
-- [elaConnectSample.py](#elaConnectSample.py) : use bluetooth through bluepy to connect to an ELA Innovation tag and send a command
-- [bluetooth_scanner_sample.py](#bluetooth_scanner_sample.py) : use bluetooth through bluepy to scan and record data into a csv file
+- [elaScanSample.py](###elaScanSample.py) : use bluetooth through bluepy to scan advertising data from bluetooth
+- [elaConnectSample.py](###elaConnectSample.py) : use bluetooth through bluepy to connect to an ELA Innovation tag and send a command
+- [bluetooth_scanner_sample.py](###bluetooth_scanner_sample.py) : use bluetooth through bluepy to scan and record data into a csv file
+- [elaScanInterpretedDataSample.py](###elaScanInterpretedDataSample.py) : use bluetooth through bluepy to scan advertising data and use TagFactory class to interpret payload into data sensor information
 
 ### elaScanSample.py
-This sample use the scanner during a fix period (10 seconds) and display results from Bluetooth Advertising.
+This sample use the scanner during a fix period (10 seconds) and display results as raw payload from Bluetooth Advertising.
 
 Run the command  : 
 ```bash
    sudo python3 elaScanSample.py
+  ```
+
+### elaScanInterpretedDataSample.py
+This sample use the scanner during a fix period (10 seconds) and display results as interpreted sensor data from Bluetooth Advertising.
+
+Run the command  : 
+```bash
+   sudo python3 elaScanInterpretedDataSample.py
   ```
 
 ### elaConnectSample.py
