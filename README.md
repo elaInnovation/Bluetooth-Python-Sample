@@ -95,6 +95,6 @@ Input parameters description:
       2nd parameter is password  : enter the Bluetooth password configured for you tag to allow EN12830 operations 
    
       3rd parameter are filters  : for the options associated to the fonction
-               -a, --start => Start the data logger. Start recording all the data according to the loggin period configured in the tag")
-               -r <file>, --read <file> => Read the content of data logger and export it on a output file")
-               -o, --stop <file> => Stop the data logger. Stop recording data into the tag")            
+               -a, --start => Start the data logger. Start recording all the data according to the loggin period configured in the tag
+               -r <file>, --read <file> => Read the content of data logger and export it on a output file
+               -o, --stop => Stop the data logger. Stop recording data into the tag
