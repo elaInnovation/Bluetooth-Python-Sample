@@ -1,10 +1,10 @@
-from ela.bluetooth.TagBase import TagBase
+from ela.bluetooth.advertising.TagBase import TagBase
 import binascii
 
 ## 
-# @class TagMag
-# @brief tag Magnetic class to wrap data for ELA MAG Tags
-class TagMag(TagBase):
+# @class TagAI
+# @brief tag Analog Input class to wrap data for ELA AI Tags
+class TagAI(TagBase):
     def __init__(self, payload):
         super().__init__(payload)
         self.formattedDataSensor = self.parsePaylaod(payload)
@@ -13,8 +13,7 @@ class TagMag(TagBase):
         result = ""
         ## implement parsing
         parse = binascii.b2a_hex(self.payload[0:32]).decode('ascii')
-        state = int(parse[16:18], 16)   
-        count = int(parse[14:16], 16)
-        result = ("state=" + str(state) + " count=" + str(count))
+        data = int((parse[16:18] + parse[14:16]), 16)
+        result = ("AI= " + str(data))
         ## end of implement parsing
         return result

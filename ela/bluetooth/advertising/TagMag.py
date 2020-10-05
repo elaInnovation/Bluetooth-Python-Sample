@@ -1,10 +1,10 @@
-from ela.bluetooth.TagBase import TagBase
+from ela.bluetooth.advertising.TagBase import TagBase
 import binascii
 
 ## 
-# @class TagMov
-# @brief tag Movement class to wrap data for ELA MOV Tags
-class TagMov(TagBase):
+# @class TagMag
+# @brief tag Magnetic class to wrap data for ELA MAG Tags
+class TagMag(TagBase):
     def __init__(self, payload):
         super().__init__(payload)
         self.formattedDataSensor = self.parsePaylaod(payload)

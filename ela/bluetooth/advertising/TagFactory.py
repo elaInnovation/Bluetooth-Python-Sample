@@ -1,12 +1,12 @@
-from ela.bluetooth.TagBase import TagBase
-from ela.bluetooth.TagRHT import TagRHT
-from ela.bluetooth.TagMag import TagMag
-from ela.bluetooth.TagMov import TagMov
-from ela.bluetooth.TagTemperature import TagTemperature
-from ela.bluetooth.TagAng import TagAng
-from ela.bluetooth.TagDI import TagDI
-from ela.bluetooth.TagAI import TagAI
-from ela.bluetooth.TagDO import TagDO
+from ela.bluetooth.advertising.TagBase import TagBase
+from ela.bluetooth.advertising.TagRHT import TagRHT
+from ela.bluetooth.advertising.TagMag import TagMag
+from ela.bluetooth.advertising.TagMov import TagMov
+from ela.bluetooth.advertising.TagTemperature import TagTemperature
+from ela.bluetooth.advertising.TagAng import TagAng
+from ela.bluetooth.advertising.TagDI import TagDI
+from ela.bluetooth.advertising.TagAI import TagAI
+from ela.bluetooth.advertising.TagDO import TagDO
 import binascii
 
 ## 

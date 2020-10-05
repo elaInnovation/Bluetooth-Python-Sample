@@ -1,6 +1,6 @@
 from bluepy.btle import Scanner, DefaultDelegate
-from ela.bluetooth.TagFactory import Tagfactory
-from ela.bluetooth.TagBase import TagBase 
+from ela.bluetooth.advertising.TagFactory import Tagfactory
+from ela.bluetooth.advertising.TagBase import TagBase 
 import binascii
 
 ## 

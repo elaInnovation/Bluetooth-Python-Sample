@@ -1,10 +1,10 @@
-from ela.bluetooth.TagBase import TagBase
+from ela.bluetooth.advertising.TagBase import TagBase
 import binascii
 
 ## 
-# @class TagDI
-# @brief tag Digital Input class to wrap data for ELA DI Tags
-class TagDI(TagBase):
+# @class TagDO
+# @brief tag Digital Output class to wrap data for ELA DO Tags
+class TagDO(TagBase):
     def __init__(self, payload):
         super().__init__(payload)
         self.formattedDataSensor = self.parsePaylaod(payload)
@@ -13,8 +13,7 @@ class TagDI(TagBase):
         result = ""
         ## implement parsing
         parse = binascii.b2a_hex(self.payload[0:32]).decode('ascii')
-        state = int(parse[16:18], 16)   
-        count = int(parse[14:16], 16)
-        result = ("DI state=" + str(state) + " count=" + str(count))
+        data = int(parse[14:16], 16)
+        result = ("DO= " + str(data))
         ## end of implement parsing
         return result

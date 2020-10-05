@@ -42,6 +42,7 @@ class BluepyConnect(DefaultDelegate):
             self._peripheral = Peripheral(self._peripheral_address, self._peripheral_address_type)
             # Set the notification delegate
             self._peripheral.setDelegate(self)
+            self._peripheral.setMTU(61)
 
             # get the list of services
             services = self._peripheral.getServices()
@@ -133,7 +134,8 @@ def test_argv():
         if (num_arguments == 3):
             mac_address = str(sys.argv[1])
             command = str(sys.argv[2])
-            print("[info]\t[Configuration]\t==> No filter defined for this record")
+            print("[info]\t[Configuration]\t==> Try to connect to mac address : ", mac_address)
+            print("[info]\t[Configuration]\t==> Try to to send command : ", command)
             success = True
         else:
             print("[help]\tTo run this script, ou have to respect the following syntax :")
@@ -161,8 +163,8 @@ if __name__ == "__main__":
         b_arg_ok, mac_address, command  = test_argv()
         if(b_arg_ok):
             # NOTE - MUST set this appropriately, depending on the type of address that the peripheral is advertising
-            # addr_type = bluepy.btle.ADDR_TYPE_PUBLIC
-            addr_type = bluepy.btle.ADDR_TYPE_RANDOM
+            addr_type = bluepy.btle.ADDR_TYPE_PUBLIC # for version >= 220
+            # addr_type = bluepy.btle.ADDR_TYPE_RANDOM # for version <= 220
 
             if mac_address is None:
                 print("Need to set the MAC address...")

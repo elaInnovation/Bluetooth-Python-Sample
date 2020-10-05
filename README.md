@@ -28,6 +28,7 @@ This repository contains different sample. Accordings to your needs, you can try
 - [elaConnectSample.py](#elaconnectsamplepy) : use bluetooth through bluepy to connect to an ELA Innovation tag and send a command
 - [bluetooth_scanner_sample.py](#bluetooth_scanner_samplepy) : use bluetooth through bluepy to scan and record data into a csv file
 - [elaScanInterpretedDataSample.py](#elascaninterpreteddatasamplepy) : use bluetooth through bluepy to scan advertising data and use TagFactory class to interpret payload into data sensor information
+- [elaDownloadDataLogger.py](#eladownloaddataloggerpy) : use bluetooth connection mode to start, read and stop ELA Innovation Data Logger T EN 12830
 
 ### elaScanSample.py
 This sample use the scanner during a fix period (10 seconds) and display results as raw payload from Bluetooth Advertising.
@@ -78,3 +79,22 @@ Input parameters description:
                                     **The filter algorithm match only if the filter is contained in Bluetooth Local Name**
                                     
      You must to enter the both first parameters. For the 3rd parameter (filters) you have to enter "" if you don't want filter.
+
+
+### elaDownloadDataLogger.py
+This sample use bluetooth and bluepy to connect to an ELA Innovation tag and send command for Data Logger EN 12830. You can Start, Read Data logger EN 12830 (and flush into a text file), and Stop.
+
+Run the command  : 
+```bash
+   sudo python3 elaDownloadDataLogger.py <mac_address> <password> [OPTION]
+  ```
+Input parameters description:
+
+      1st parameter is mac address: enter a string to specify the tag's mag address. This information is available by scanning and in the Bluetooth Advertisement
+   
+      2nd parameter is password  : enter the Bluetooth password configured for you tag to allow EN12830 operations 
+   
+      3rd parameter are filters  : for the options associated to the fonction
+               -a, --start => Start the data logger. Start recording all the data according to the loggin period configured in the tag")
+               -r <file>, --read <file> => Read the content of data logger and export it on a output file")
+               -o, --stop <file> => Stop the data logger. Stop recording data into the tag")            

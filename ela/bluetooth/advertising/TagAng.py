@@ -1,4 +1,4 @@
-from ela.bluetooth.TagBase import TagBase
+from ela.bluetooth.advertising.TagBase import TagBase
 import binascii
 
 ## 
