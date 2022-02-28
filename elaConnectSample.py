@@ -37,9 +37,10 @@ class BluepyConnect(DefaultDelegate):
         """This is the bluepy IO thread
         :return:
         """
+        self._peripheral = Peripheral(self._peripheral_address, self._peripheral_address_type)
         try:
             # Connect to the peripheral
-            self._peripheral = Peripheral(self._peripheral_address, self._peripheral_address_type)
+            
             # Set the notification delegate
             self._peripheral.setDelegate(self)
             self._peripheral.setMTU(61)
